@@ -1,0 +1,29 @@
+{%extends 'profile.html'%}
+
+{%block title%}
+  <title>DELETE REVIEW</title>
+{%endblock%}
+
+{%block content%}
+    <div class="container">
+        <div class="jumbotron bg-light">
+          <h3>USER RECOMMENDATIONS</h3><br>
+          <table border="" class="table-danger">
+            <tr>
+              <th>Name</th>
+              <th>Email Id</th>
+              <th>Book Name</th>
+              <th>Author Name</th>
+            </tr>
+              {%for a in recs%}
+              <tr>
+                  <td>{{a.name}}</td>
+                  <td>{{a.email}}</td>
+                  <td>{{a.bookName}}</td>
+                  <td>{{a.author}}</td>
+              </tr>
+              {%endfor%}
+          </table>
+        </div>
+    </div>
+{%endblock%}

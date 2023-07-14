@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+
+{%block title%}
+    <title>{{data.bookName}}</title>
+{%endblock%}
+{%block content%}
+    <div class="container">
+        <div class="jumbotron bg-dark text-white">
+            <div class="row">
+                <div class="col-xl-3">
+                    <img src="/media/{{data.image}}" class="img-fluid mx-auto d-block">
+                </div>
+                <div class="col-xl-9">
+                    <h4>{{data.bookName | upper}} by {{data.author | upper}}</h4>
+                    <p>{{data.description}}</p>
+                    <hr class="bg-white">
+                    <p>PAGES : <strong>{{data.pages}}</strong></p>
+                    <p>PRICE : <strong>₹ {{data.price}}</strong></p>
+                    <p>MY RATINGS : {% for i in data.ratings|get_range %}
+                                <span class="fa fa-star text-warning"></span>
+                            {% endfor %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{%endblock%}

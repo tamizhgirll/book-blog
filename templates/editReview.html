@@ -1,0 +1,22 @@
+{%extends 'profile.html'%}
+
+{%block title%}
+  <title>EDIT REVIEW</title>
+{%endblock%}
+
+{%block content%}
+    <div class="container">
+        <div class="jumbotron bg-light">
+            <h3>EDIT REVIEW</h3><br>
+              <form method="post" enctype="multipart/form-data">
+                  {%csrf_token%}
+                  <table>
+                    {{form.as_table}}
+                  </table><br>
+                <input type="submit" value="UPDATE" class="btn btn-warning">
+                <a href="/profile/delete/{{obj.id}}" class="btn btn-danger">DELETE</a>
+              </form>
+
+        </div>
+    </div>
+{%endblock%}

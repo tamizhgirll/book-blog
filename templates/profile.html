@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADMIN</title>
+    {%block title%}
+        <title>BOOKSTAGRAM</title>
+    {%endblock%}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="icon" href="https://p7.hiclipart.com/preview/914/352/870/book-icon-vector-books.jpg">
+
+    <style>
+        .navbar a{
+            color:white !important;
+        }
+        .navbar a:hover{
+            text-decoration:underline;
+        }
+        .border li{
+            border-radius:5px;
+            padding:25px !important;
+        }
+        .border li:hover{
+            cursor:pointer;
+            margin:10px !important;
+            box-shadow:3px 4px 3px gray !important;
+        }
+        a:hover{
+            text-decoration:none;
+        }
+        th,td{
+            padding:10px;
+        }
+    </style>
+
+</head>
+<body style="background-color:#B2D3FE">
+  <div class="navbar navbar-expand-xl bg-dark navbar-dark ">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a href="/profile" class="nav-link navbar-brand">ADMIN SITE</a></li>
+            <li class="nav-item"><a href="/profile/addreview" class="nav-link">ADD NEW REVIEW</a></li>
+            <li class="nav-item"><a href="" class="nav-link">VIEW COMMENTS</a></li>
+            <li class="nav-item"><a href="recommendations" class="nav-link">VIEW RECOMMENDATIONS</a></li>
+            <li class="nav-item"><a href="" class="nav-link">TBR LIST</a></li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="/" class="nav-link">VIEW SITE</a></li>
+            <li class="nav-item"><a href="/logout" class="nav-link">LOGOUT</a></li>
+        </ul>
+    </div>
+    <br>
+
+    {%block content%}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3">
+                    <div class="border p-3">
+                        <h5 class="text-center">DRAFTS</h5>
+                    </div>
+                </div>
+                <div class="col-xl-9">
+                    <div class="border p-3">
+                        <h4 class="text-center">POSTED REVIEWS</h4><hr><br>
+                        <ul type="none">
+                            {%for x in reviews%}
+                                <a href="edit/{{x.id}}">
+                                    <li class="border bg-light text-dark my-3 p-3">
+                                        <h4>{{x.bookName}}</h4><hr class="bg-secondary">
+                                        <p>{{x.description | truncatechars:100}}</p>
+                                    </li>
+                                </a>
+                            {%endfor%}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {%endblock%}
+</body>
+</html>
